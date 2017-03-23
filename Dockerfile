@@ -6,17 +6,17 @@ MAINTAINER snoopy <info@medved.in>
 #########################################
 
 # Set correct environment variables
-ENV HOME="/root" LC_ALL="C.UTF-8" LANG="en_US.UTF-8" LANGUAGE="en_US.UTF-8"
+ENV HOME="/root" LC_ALL="C.UTF-8" LANG="de_DE.UTF-8" LANGUAGE="de_DE.UTF-8"
 
 # Use baseimage-docker's init system
 CMD ["/sbin/my_init"]
 
 # Install airplay
-RUN mkdir /var/run/dbus
-RUN apt-get update
-RUN apt-get install -y wget libcrypt-openssl-rsa-perl libio-socket-inet6-perl libwww-perl avahi-utils libio-socket-ssl-perl dbus avahi-daemon
-RUN wget http://www.inf.udec.cl/~diegocaro/rpi/libnet-sdp-perl_0.07-1_all.deb
-RUN dpkg -i libnet-sdp-perl_0.07-1_all.deb
+# RUN mkdir /var/run/dbus
+# RUN apt-get update
+# RUN apt-get install -y wget libcrypt-openssl-rsa-perl libio-socket-inet6-perl libwww-perl avahi-utils libio-socket-ssl-perl dbus avahi-daemon
+# RUN wget http://www.inf.udec.cl/~diegocaro/rpi/libnet-sdp-perl_0.07-1_all.deb
+# RUN dpkg -i libnet-sdp-perl_0.07-1_all.deb
 
 ADD avahi-daemon.conf /etc/avahi/avahi-daemon.conf
 
@@ -24,12 +24,12 @@ ADD avahi-daemon.conf /etc/avahi/avahi-daemon.conf
 # RUN sed -i -e "s#\#enable-dbus=yes#enable-dbus=false#g" /etc/avahi/avahi-daemon.conf
 
 # Add avahi-daemon to runit
-RUN mkdir /etc/service/avahi-daemon
-ADD avahi-daemon.sh /etc/service/avahi-daemon/run
-RUN chmod +x /etc/service/avahi-daemon/run
+# RUN mkdir /etc/service/avahi-daemon
+# ADD avahi-daemon.sh /etc/service/avahi-daemon/run
+# RUN chmod +x /etc/service/avahi-daemon/run
 
 # Fix spamming in logs
-RUN echo "export NO_AT_BRIDGE=1" >> /etc/bash.bashrc
+# RUN echo "export NO_AT_BRIDGE=1" >> /etc/bash.bashrc
 
 
 #########################################
