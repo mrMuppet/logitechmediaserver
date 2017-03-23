@@ -2,7 +2,7 @@
 
 Docker image for Logitech Media Server (SqueezeCenter, SqueezeboxServer, SlimServer)
 
-Also with airplay function!
+
 
 Run with:
 
@@ -14,5 +14,3 @@ docker run -t -i --rm=true --net="host" \
       -v "/etc/localtime":"/etc/localtime":ro \
       snoopy86/logitechmediaserver
 ```
-
-DONATE - https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=GSRTR79H7Q47J
